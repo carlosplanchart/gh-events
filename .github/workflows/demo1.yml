@@ -3,6 +3,14 @@ on:
   pull_request:
     types: [opened]
   workflow_dispatch:
+  push:
+    branches:
+      - main # main
+      - 'dev-*' # dev-new dev-this-is-new
+      - 'feat/**'  # ** feat/new feat/new/button
+    paths-ignore:
+      - '.github/workflows/*' #this workflow completely ignores if hanges are only in github&workflow yml
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
